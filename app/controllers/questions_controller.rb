@@ -5,6 +5,9 @@ class QuestionsController < ApplicationController
 
   # 質問の詳細ページ表示
   def show
+    # p params[:id]
+    @question = Question.find[params[:id]]
+    # p @question
   end
 
   # 質問の作成
@@ -19,7 +22,7 @@ class QuestionsController < ApplicationController
     # QuestionモデルをDBへ保存
     @question.save
     # showアクションにリダイレクト
-    redirect_to @question # パスを具体的に指定しなくても、Railsが裏側の処理で該当のパスを自動生成してくれる
+    redirect_to @question # パスを具体的に指定しなくても、Railsが裏側の処理で該当のパスを自動生成してくれる。
   end
 
   # 質問の編集
