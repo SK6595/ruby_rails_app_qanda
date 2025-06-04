@@ -22,9 +22,12 @@ class QuestionsController < ApplicationController
     # Questionモデルを初期化
     @question = Question.new(question_params)
     # QuestionモデルをDBへ保存
-    @question.save
-    # showアクションにリダイレクト
-    redirect_to @question # パスを具体的に指定しなくても、Railsが裏側の処理で該当のパスを自動生成してくれる。
+    if @question.save
+      # showアクションにリダイレクト
+      redirect_to @question # パスを具体的に指定しなくても、Railsが裏側の処理で該当のパスを自動生成してくれる。
+    else
+      render 'new', status: unprocessable_entity
+    end
   end
 
   # 質問の編集
