@@ -15,6 +15,10 @@
       <td><%= question.content %></td>
       <td><%= link_to 'show', question_path(question) %></td>
       <td><%= link_to 'edit', edit_question_path(question) %></td>
+      <td><%= link_to 'destroy', question_path(question),
+        data: { turbo_method: 'delete',
+        turbo_confirm: 'Are you sure?' } %> <!-- turboというRailsの記述でJavaScriptの動作を快適に実現できる仕組みが使われているため、「turbo_」というPrefixをつける必要がある。-->
+      </td>
     </tr>
   <% end %>
 </table>

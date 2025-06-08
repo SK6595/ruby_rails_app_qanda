@@ -47,6 +47,9 @@ class QuestionsController < ApplicationController
 
   # 質問の削除
   def destroy
+    @question = Question.find(params[:id]) #削除したいレコードを「@question = Question.find(params[:id])」で検索して、インスタンス変数の@questionに入れる。
+    @question.destroy #「@question.destroy」で質問の削除を行う。
+    redirect_to questions_path #「redirect_to questions_path」で、質問の一覧ページに飛ぶ。
   end
 
   private
