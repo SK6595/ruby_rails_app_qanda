@@ -11,4 +11,21 @@
   Content: <br>
   <%= @question.content %>
 </p>
-<%= link_to 'top', questions_path 
+
+
+<h2>Add an answer</h2>
+<%= form_with model: [@question, @question.answers.build] do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<%= end %>
+
+<%= link_to 'top', questions_path %>
