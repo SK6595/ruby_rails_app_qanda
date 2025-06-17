@@ -22,6 +22,10 @@
     Content: <br>
     <%= answer.content %>
   </p>
+  <p>
+  <%= link_to 'Destroy Answer', [answer.question, answer], 
+  data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?'} %>
+  </p> <!-- 第2引数で配列を使ってQuestionとAnswerのモデルを渡す -->
 <% end %>
 
 <h2>Add an answer</h2>
